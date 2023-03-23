@@ -1,0 +1,12 @@
+#text{
+    text-align: left;
+}
+
+.content-imgs-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.single-content-img{
+    height: 250px;
+}
