@@ -5,6 +5,7 @@
 .content-imgs-container{
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .single-content-img{
