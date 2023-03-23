@@ -1,0 +1,17 @@
+#buttons-bar{
+    justify-content: space-evenly;
+}
+
+.btn-row-class{
+    display: flex;
+    flex-direction: row;  
+}
+
+.btn-row-class svg{
+    padding-right: 4px;
+}
+
+#btn-desc{
+    justify-content: space-between;
+    padding: 0px 20px;
+}
