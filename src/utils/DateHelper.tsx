@@ -39,7 +39,7 @@ const getDiff = (startDate:string) => {
         resStr = resStr.slice(0,resStr.length - 1 )
     }
 
-   console.log(date1.toLocaleString(), units, resStr)
+   //console.log(date1.toLocaleString(), units, resStr)
    //console.log(resValue)
 
     return resStr;

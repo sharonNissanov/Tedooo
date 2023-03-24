@@ -15,7 +15,13 @@
 
   .sub-title{
     font-weight: 500;
+  }
+
+  .shop-name{
     color: #2222cd;
+  }
+  .user-date{
+    color: grey;
   }
 
 .user-container{
