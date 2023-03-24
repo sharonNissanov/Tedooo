@@ -9,7 +9,8 @@ const getDiff = (startDate:string) => {
     let date1:any = new Date(startDate);
     let date2:any = new Date(); //today
     let timediff:any = date2 - date1;
-    let res:any;
+    let resStr:any;
+    let resValue:any;
     let units:any =[
         {unit:second, max: 60, name:" seconds"},
         {unit:minute, max: 60, name:" minutes"},
@@ -22,18 +23,25 @@ const getDiff = (startDate:string) => {
     units.forEach((data:any)=>{
         data.diff =  Math.floor(timediff / data.unit);
         if(data.max != null ){
-            if( data.diff <  data.max && res == undefined){
-                res = data.diff + data.name;        
+            if( data.diff <  data.max && resStr == undefined){
+                resStr = data.diff + data.name;    
+                resValue = data.diff; 
             }
         }
-         if(data.max == null &&  res == undefined) { //years case
-             res = data.diff + data.name;
+         if(data.max == null &&  resStr == undefined) { //years case
+            resStr = data.diff + data.name;
+            resValue = data.diff; 
         }
     });
 
 
+    if(resValue == 1 && resStr != undefined){
+        resStr = resStr.slice(0,resStr.length - 1 )
+    }
 
-    console.log(date1.toLocaleString(), units, res)
-    return res;
+   console.log(date1.toLocaleString(), units, resStr)
+   //console.log(resValue)
+
+    return resStr;
 }
 export default getDiff;
