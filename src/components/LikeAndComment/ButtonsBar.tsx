@@ -11,8 +11,6 @@ type ButtonsBarProps = {
 
  const ButtonsBar = (props : ButtonsBarProps)=>{
     let btn_class = props.didLike ? "second-bar-clicked-btn" : "second-bar-unclicked-btn";
-   
-   
     return (
         <div>
             <div className='btn-row-class btn-desc'> 
@@ -21,7 +19,7 @@ type ButtonsBarProps = {
             </div>
 
             <div id='buttons-bar' className='btn-row-class'>
-                <Button title={"like"} icon = { <ThumbUpOffAltOutlinedIcon/>} btnClass={btn_class} didLike={props.didLike}/>
+                <Button title={"like"} icon = { <ThumbUpOffAltOutlinedIcon/>} btnClass={btn_class}/>
                 <Button title={"comment"} icon = {<ChatBubbleOutlineIcon/>}  btnClass = {"second-bar-second-item"} />           
             </div>
 

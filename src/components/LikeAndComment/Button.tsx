@@ -2,7 +2,6 @@
 type ButtonProps = {
     title: string,
     icon?: React.ReactNode,
-    didLike?: boolean,
     btnClass? :string,
 }
 
