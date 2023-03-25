@@ -1,7 +1,7 @@
 #buttons-bar{
     justify-content: space-evenly;
 }
-
+/* single btn */
 .btn-row-class{
     display: flex;
     flex-direction: row;  
@@ -11,7 +11,20 @@
     padding-right: 4px;
 }
 
-#btn-desc{
+.btn-desc{
     justify-content: space-between;
     padding: 0px 20px;
 }
+
+.btn-item-bar-1{
+    align-items: center;
+}
+.btn-item-bar-1 .btn-title{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;    
+    color: #737877;
+}
+

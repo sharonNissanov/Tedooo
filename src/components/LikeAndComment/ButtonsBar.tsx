@@ -10,14 +10,14 @@ type ButtonsBarProps = {
 }
 
  const ButtonsBar = (props : ButtonsBarProps)=>{
-    let color = props.didLike ?'#4a4aef' :'black';
+    let color = props.didLike ?' #0A66C2' :'black';
    
    
     return (
         <div>
-            <div id='btn-desc' className='btn-row-class'> 
-                <Button title={props.likes.toString()} icon = { < RecommendIcon /> } color = {'rgb(65 200 205)'}/>
-                <Button title={props.comments.toString() + " comments"} />
+            <div className='btn-row-class btn-desc'> 
+                <Button title={props.likes.toString()} btnClass={"btn-item-bar-1"} icon = { < RecommendIcon /> } color = {'rgb(41,169,148)'}/>
+                <Button title={props.comments.toString() + " comments"} btnClass={"btn-item-bar-1"}/>
             </div>
 
             <div id='buttons-bar' className='btn-row-class'>
