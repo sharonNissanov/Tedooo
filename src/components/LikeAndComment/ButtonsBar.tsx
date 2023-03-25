@@ -10,21 +10,21 @@ type ButtonsBarProps = {
 }
 
  const ButtonsBar = (props : ButtonsBarProps)=>{
-    let color = props.didLike ?' #0A66C2' :'black';
+    let btn_class = props.didLike ? "second-bar-clicked-btn" : "second-bar-unclicked-btn";
    
    
     return (
         <div>
             <div className='btn-row-class btn-desc'> 
-                <Button title={props.likes.toString()} btnClass={"btn-item-bar-1"} icon = { < RecommendIcon /> } color = {'rgb(41,169,148)'}/>
-                <Button title={props.comments.toString() + " comments"} btnClass={"btn-item-bar-1"}/>
+                <Button title={props.likes.toString() + " Likes"} btnClass = {"first-bar-first-btn"} icon = {<RecommendIcon/>}/>
+                <Button title={props.comments.toString() + " comments"} btnClass={"first-bar-sec-btn"}/>
             </div>
 
             <div id='buttons-bar' className='btn-row-class'>
-                <Button title={"like"} icon = { < ThumbUpOffAltOutlinedIcon  /> } color = {color} didLike={props.didLike}/>
-                <Button title={"comment"} icon = { < ChatBubbleOutlineIcon />}  color = {'black'} />
-                        
+                <Button title={"like"} icon = { <ThumbUpOffAltOutlinedIcon/>} btnClass={btn_class} didLike={props.didLike}/>
+                <Button title={"comment"} icon = {<ChatBubbleOutlineIcon/>}  btnClass = {"second-bar-second-item"} />           
             </div>
+
         </div>
     )
 }

@@ -15,11 +15,17 @@
     justify-content: space-between;
     padding: 0px 20px;
 }
+/*----------- first bar ------------------------------------------ */
 
-.btn-item-bar-1{
+/* class for first btn (likes) */
+.first-bar-first-btn{
+    display: flex;
     align-items: center;
 }
-.btn-item-bar-1 .btn-title{
+.first-bar-first-btn .btn-icon{  
+    color: #32BAA3;
+}
+.first-bar-first-btn .btn-title{
     font-family: 'DM Sans';
     font-style: normal;
     font-weight: 400;
@@ -28,3 +34,30 @@
     color: #737877;
 }
 
+/* class for second btn (coments)*/
+.first-bar-sec-btn .btn-title{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;    
+    color: #737877;
+}
+
+/*----------- second bar ------------------------------------------ */
+.second-bar-clicked-btn {
+    color: #0A66C2;
+    display: flex;
+    align-items: center;
+}
+
+.second-bar-unclicked-btn{
+    display: flex;
+    color: #737877;
+    align-items: center;
+}
+.second-bar-second-item{
+    display: flex;
+    color: #737877;
+}
+/* --------------------------------------------------------------- */
