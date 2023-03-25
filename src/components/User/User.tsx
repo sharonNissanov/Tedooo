@@ -1,5 +1,7 @@
+import { Avatar } from '@mui/material';
 import PremiumLabel from './PremiumLabel';
 import getDiff from '../../utils/DateHelper';
+
 type UserProps = {
     username: string,
     userId: string,
@@ -15,7 +17,7 @@ type UserProps = {
     return (
         <div className="user-container">
             <div style={{'display':'flex'}}>
-                <img src={props.avatar} alt="Avatar" className = "avatar"/>
+                <Avatar src={props.avatar}  alt="Avatar"/>
                 <div className= 'user-data'>
                     <h2 className="title"> {props.username}</h2>
                     <h4 className="sub-title"> 

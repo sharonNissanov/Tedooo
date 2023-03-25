@@ -1,4 +1,6 @@
 import tedoooLogo from"../../images/tedoooLogo.png";
+import { Avatar, Box } from '@mui/material';
+
 type PremiumProps = {
     premium: boolean
 }
@@ -8,10 +10,10 @@ type PremiumProps = {
     
     return (    
     
-        <div className="user-pro-label">
-            <img className="user-pre-img" src={tedoooLogo}></img>
-            <div > Pro</div>
-        </div>
+        <Box className="user-pro-label">
+            <Avatar src={tedoooLogo}  sx={{ width: "35%", height: "35%" }} />
+             <span className="user-pro-labe-text">Pro</span>
+        </Box>
     )
    }else{
     return  null;
