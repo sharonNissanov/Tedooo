@@ -17,16 +17,15 @@ type UserProps = {
     return (
         <div className="user-container">
             <div style={{'display':'flex'}}>
-                <Avatar src={props.avatar}  alt="Avatar"/>
+                <Avatar src={props.avatar}  alt="Avatar"  sx={{ width: "40px", height: "40px" }}/>
+                
                 <div className= 'user-data'>
-                    <h2 className="title"> {props.username}</h2>
-                    <h4 className="sub-title"> 
-                        <span className='shop-name'>{props.shopName}</span> 
-                        {/* TODO change it */}
-                        <span>{" * "}</span>  
-                        <span className='user-date'>{date}</span> 
-                    </h4>
-                    
+                    <div className="user-name"> {props.username}</div>
+                    <div> 
+                        <span className='shop-name sub-title'>{props.shopName}</span> 
+                        <span className='middle-dot sub-title' >{props.shopName != undefined ? " • " : ""}</span>   
+                        <span className='user-date sub-title'>{date}</span> 
+                    </div>
                 </div>
        
             </div>

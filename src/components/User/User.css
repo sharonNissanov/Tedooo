@@ -1,21 +1,34 @@
 
-  .title{
+  .user-name{
     color: black;
     margin-bottom: 0;
+    font-family: 'DM Sans';
+    font-style: normal;
     font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .sub-title{
+    font-family: 'DM Sans';
+    font-style: normal;
     font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
   }
 
   .shop-name{
-    color: #2222cd;
+    color: #0A66C2;
   }
   .user-date{
-    color: grey;
+    color: #949796;
+  }
+  .middle-dot{
+    color: #949796;
+    font-weight: unset !important;
   }
 
+  
 .user-container{
     display: flex;
     flex-direction: row;
