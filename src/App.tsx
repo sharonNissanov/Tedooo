@@ -29,7 +29,6 @@ function App() {
     setResponse(res);
     setResponseNew(res.slice(0, FEED_ITEMS ));
    // testDate()
-   
   };
   fetchData();
 
@@ -50,7 +49,7 @@ function trackScrolling():void{
      // console.log(diff, lastScrollDate.toString(), currentScrollDate.toString())
       prevBounding = appElement; 
       lastScrollDate = new Date();
-      _sendImpression();
+      checkWhatItemWatched();
     }
     
     if (appElement.bottom <= window.innerHeight){
@@ -71,7 +70,8 @@ function trackScrolling():void{
     }return true;
   }
 
-  function _sendImpression(){
+  //check if there is ant item that the user has watched, by using items bounderies
+  function checkWhatItemWatched(){
     let items = document.getElementsByClassName("feed-data-item");
     for(let i=0; i< items.length ; i++){
       let item = items[i].getBoundingClientRect();
