@@ -1,5 +1,11 @@
-#text{
+.text-container{
     text-align: left;
+    padding: 2%;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 .content-imgs-container{
@@ -9,5 +15,5 @@
 }
 
 .single-content-img{
-    height: 250px;
+    /* height: 250px; */
 }
