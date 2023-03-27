@@ -9,16 +9,19 @@ import testDate from './utils/Test';
 
 import MenuComponent from './components/Menu'
 import getDiff from './utils/DateHelper';
+import sendImpression from './utils/ImpressionHelper';
 
 function App() {
   const [response, setResponse] = useState<any>([]);
   const [responseNew, setResponseNew] = useState<any>([]);
-  let scrolling:boolean = false;
-  let sendImpr:boolean = false;
+
   let lastScrollDate :Date = new Date();
   let currentScrollDate :Date = new Date();
-  let prevPosition:any ;
+  let prevBounding:any ;
+  let prevImpression:any ;
+
   const FEED_ITEMS : number = 6 ;
+  const SECONDS : number = 5;
 
  useEffect(() => {
   const fetchData = async () => {
@@ -36,17 +39,17 @@ document.addEventListener('scroll', ()=>{trackScrolling();});
 
 //execute when user scroll the page
 function trackScrolling():void{
-  currentScrollDate = new Date();
+  currentScrollDate = new Date(); //now
   let appElement = document.getElementsByClassName('App')[0].getBoundingClientRect();
-  if(prevPosition == undefined){
-    prevPosition = appElement; 
+  if(prevBounding == undefined){
+    prevBounding = appElement; 
   }
     let diff :string = getDiff(lastScrollDate.toString(), currentScrollDate.toString());
 
-    if(isBiggerThan5second(diff)){ //if 5 seconds have passed
-      prevPosition = appElement; 
+    if(isBiggerThan5second(diff) && response.length >0 ){ //if 5 seconds have passed
+      prevBounding = appElement; 
       lastScrollDate = new Date();
-      sendImpression();
+      _sendImpression();
     }
     
     if (appElement.bottom <= window.innerHeight){
@@ -59,25 +62,32 @@ function trackScrolling():void{
   function isBiggerThan5second(str:string):boolean{
     if(str.includes("seconds")){
       let number: any = str.slice(0, str.length  - "seconds".length  - 1 ); //remove " secondes"
-      if(!isNaN(number) && parseInt(number) > 5 ){
-        console.log("bigger-------------------------------------------------------- ", number)
+      if(!isNaN(number) && parseInt(number) > SECONDS ){
         return true;
       }else{
         return false;
       }
-
     }return true;
   }
 
-  function sendImpression(){
+  function _sendImpression(){
     let items = document.getElementsByClassName("feed-data-item");
     for(let i=0; i< items.length ; i++){
       let item = items[i].getBoundingClientRect();
       if(item.top > 0 && item.top + item.height < window.screen.height){
-        console.log(i)
+        if(prevImpression == undefined){
+          prevImpression = i;
+          sendImpression(response[i].userId, response[i].id)
+        }
+        if(prevImpression != i){
+          sendImpression(response[i].userId, response[i].id)
+          prevImpression = i;
+        }
+
       }
     }
   }
+
 
   return (
     <div className="App">
@@ -94,9 +104,7 @@ function trackScrolling():void{
           premium =  {data.premium}
           date =  {data.date}
           />
-
           <Content text = {data.text} imgs = {data.images} />
-
           <ButtonsBar  didLike={data.didLike}  likes ={data.likes} comments ={data.comments}/>
       </Card>
 
