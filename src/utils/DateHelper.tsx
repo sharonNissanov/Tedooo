@@ -1,13 +1,15 @@
 import { formGroupClasses } from "@mui/material";
 
 /**
- * calc te differenct between startDate and today
+ * calc and returns the differenct between compareTo and today
  * @param startDate 
+ * @param compareTo 
  */
-const getDiff = (startDate:string) => {
+
+const getDiff = (startDate:string, compareTo:any = undefined) => {
     let second=1000, minute=second*60, hour=minute*60, day=hour*24, week=day*7,month=day*30 , year=(1000*60*60*24*365);
     let date1:any = new Date(startDate);
-    let date2:any = new Date(); //today
+    let date2:any = compareTo == undefined ? new Date() : new Date(compareTo); //today
     let timediff:any = date2 - date1;
     let resStr:any;
     let resValue:any;
