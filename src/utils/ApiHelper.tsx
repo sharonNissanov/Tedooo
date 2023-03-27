@@ -4,7 +4,7 @@ const getData = async () => {
     try {
 
         let response = await axios.get('https://dev.tedooo.com/feed.json')
-        console.log(response);
+        //console.log(response);
         return response.data;
     } catch(error){
 

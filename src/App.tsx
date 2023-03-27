@@ -47,6 +47,7 @@ function trackScrolling():void{
     let diff :string = getDiff(lastScrollDate.toString(), currentScrollDate.toString());
 
     if(isBiggerThan5second(diff) && response.length >0 ){ //if 5 seconds have passed
+     // console.log(diff, lastScrollDate.toString(), currentScrollDate.toString())
       prevBounding = appElement; 
       lastScrollDate = new Date();
       _sendImpression();
