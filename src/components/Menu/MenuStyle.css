@@ -1,0 +1,6 @@
+.item-selected {
+    color:#47C1AD  ;
+    border: 1px solid transparent !important;
+    border-bottom-color:#47C1AD !important;
+    background-color: transparent !important;
+}

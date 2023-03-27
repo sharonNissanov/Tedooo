@@ -8,16 +8,15 @@ import Box from '@mui/material/Box';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
+
 import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 
-import "./MenuStyle.css";
 import {HomeOutlined, ChatBubbleOutlineRounded, NotificationsOutlined} from '@mui/icons-material';
 import userImg from"../../images/user.png";
-
+import './MenuStyle.css'
 import SearchAppBar from './Search'
 
 export default function MenuComponent() {
@@ -35,7 +34,7 @@ export default function MenuComponent() {
         <Container sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '1% 0'}}>
             <Box><SearchAppBar/></Box>   
         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <MenuItem  selected= {true} sx={{color:"#47C1AD"}} onClick={handleClose}> <HomeOutlined/> Home </MenuItem>
+        <MenuItem  className='item-selected' sx={{color:"#47C1AD"}} onClick={handleClose}> <HomeOutlined/> Home </MenuItem>
         <MenuItem sx={{color:"#A1A4A3"}} onClick={handleClose}> <ChatBubbleOutlineRounded /> Messaging </MenuItem>
         <MenuItem sx={{color:"#A1A4A3 "}} onClick={handleClose}> <NotificationsOutlined /> Notification </MenuItem>
 
