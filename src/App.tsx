@@ -16,8 +16,8 @@ function App() {
   let scrolling:boolean = false;
   let sendImpr:boolean = false;
   let lastScrollDate :Date = new Date();
-  let prevScrollDate :Date = new Date();
-
+  let currentScrollDate :Date = new Date();
+  let prevPosition:any ;
   const FEED_ITEMS : number = 6 ;
 
  useEffect(() => {
@@ -26,26 +26,33 @@ function App() {
     setResponse(res);
     setResponseNew(res.slice(0, FEED_ITEMS ));
    // testDate()
+   
   };
   fetchData();
+
 }, []);
 
 document.addEventListener('scroll', ()=>{trackScrolling();});
 
 //execute when user scroll the page
 function trackScrolling():void{
-    prevScrollDate = new Date();
-    let diff :string = getDiff(lastScrollDate.toString(), prevScrollDate.toString());
-    let wrappedElement = document.getElementsByClassName('App');
-    if(isBiggerThan5second(diff)){
-     console.log(wrappedElement[0].getBoundingClientRect())
-     // getItem(wrappedElement[0].getBoundingClientRect());
-      //sendImpression()
+  currentScrollDate = new Date();
+  let appElement = document.getElementsByClassName('App')[0].getBoundingClientRect();
+  if(prevPosition == undefined){
+    prevPosition = appElement; 
+  }
+    let diff :string = getDiff(lastScrollDate.toString(), currentScrollDate.toString());
+
+    if(isBiggerThan5second(diff)){ //if 5 seconds have passed
+      prevPosition = appElement; 
+      lastScrollDate = new Date();
+      sendImpression();
     }
-    lastScrollDate = new Date();
-    if (wrappedElement[0].getBoundingClientRect().bottom <= window.innerHeight){
-      setResponseNew(response.slice(0,responseNew.length + FEED_ITEMS));
+    
+    if (appElement.bottom <= window.innerHeight){
+      setResponseNew(response.slice(0, responseNew.length + FEED_ITEMS)); //load next 6 items 
     } 
+
   };
 
   //check if the differece is bigger than 5 seconds
@@ -60,6 +67,16 @@ function trackScrolling():void{
       }
 
     }return true;
+  }
+
+  function sendImpression(){
+    let items = document.getElementsByClassName("feed-data-item");
+    for(let i=0; i< items.length ; i++){
+      let item = items[i].getBoundingClientRect();
+      if(item.top > 0 && item.top + item.height < window.screen.height){
+        console.log(i)
+      }
+    }
   }
 
   return (

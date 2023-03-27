@@ -1,7 +1,7 @@
 import getDiff from './DateHelper';
 
 const testDate = (startDate) => {
-    let today =  new Date();
+
     let dates=[
         // {d:'Fri, 24 Mar 2023 12:49:10 GMT', res:"51"},
         // {d:"Fri, 22 Mar 2023 12:49:10 GMT", res: " "},
@@ -24,16 +24,16 @@ const testDate = (startDate) => {
         {d: new Date((new Date()).setMonth((new Date).getUTCMonth()-1)).toString() , res: "1 month"},
         {d: new Date((new Date()).setHours((new Date).getHours()-2)).toString() , res: "2 months"},
 
- 
+        {d: new Date((new Date()).setSeconds((new Date).getSeconds()-2)).toString() , res: "2 seconds"},
 
     ];
     // new Date().setHours(today.getHours()+1)
     //  today.setHours(today.getHours()+1)
-    // dates.forEach(date=>{
-    //     getDiff(date.d)
-    //     //console.log( new Date().toLocaleString()  , new Date(date.d).toLocaleString(), getDiff(date.d), date.res )
-    //  //   console.log(getDiff(date.d) , getDiff(date.d) ==  date.res )
-    // })
+    dates.forEach(date=>{
+        getDiff(date.d)
+        console.log( new Date().toLocaleString()  , new Date(date.d).toLocaleString(), getDiff(date.d), date.res )
+       console.log(getDiff(date.d) , getDiff(date.d) ==  date.res )
+    })
 
 
 }
